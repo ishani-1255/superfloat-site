@@ -655,21 +655,21 @@ export default function FMAPipeline() {
         // input i → R1 (carries A_di), input j → R2 (carries W_di)
         flights.push({
           path: [[24, R1cy], [R1cx, R1cy], [R1cx, R1.y + R1.h + 14]],
-          label: DATA[di], color: "#185FA5",
+          label: DATA[di], color: "#2196F3",
         });
         flights.push({
           path: [[24, R2cy], [R2cx, R2cy], [R2cx, R2.y - 14]],
-          label: WGHT[di], color: "#993C1D",
+          label: WGHT[di], color: "#FF5722",
         });
       } else if (si === 1) {
         // R1/R2 → MUL (mantissas) and R1/R2 → XOR (sign bits)
         flights.push({
           path: [[R1cx, R1.y + R1.h + 14], [R1cx, MUL.cy + MUL.r + 14]],
-          label: DATA[di], color: "#185FA5",
+          label: DATA[di], color: "#2196F3",
         });
         flights.push({
           path: [[R2cx, R2.y - 14], [R2cx, MUL.cy + MUL.r + 14]],
-          label: WGHT[di], color: "#993C1D",
+          label: WGHT[di], color: "#FF5722",
         });
         flights.push({
           path: [[R1.x + R1.w, R1.y + 20], [XOR.cx, R1.y + 20], [XOR.cx, XOR.cy - XOR.r - 14]],
@@ -688,7 +688,7 @@ export default function FMAPipeline() {
             [R3.x, R3cy],
             [R3cx, R3.y + R3.h + 14],
           ],
-          label: `${DATA[di]}×${WGHT[di]}`, color: "#BA7517",
+          label: `${DATA[di]}×${WGHT[di]}`, color: "",
         });
         flights.push({
           path: [
@@ -714,7 +714,7 @@ export default function FMAPipeline() {
             [R4.x + R4.w, R4cy - 10],
             [R4cx, R4.y - 14],
           ],
-          label: `${DATA[di]}·${WGHT[di]}`, color: "#534AB7",
+          label: `${DATA[di]}·${WGHT[di]}`, color: "#A855F7",
         });
         // R4 → ADD → R4 (running total recycling back into the accumulator)
         if (di >= 1) {
@@ -727,7 +727,7 @@ export default function FMAPipeline() {
               [ADD.cx + ADD.r, ADD.cy],
               [ADD.cx - ADD.r - 44, ADD.cy],
             ],
-            label: accStrUpTo(di - 1), color: "#3B6D11",
+            label: accStrUpTo(di - 1), color: "#16C45B",
           });
         }
       }
@@ -769,32 +769,32 @@ export default function FMAPipeline() {
         ════════════════════════════════════════════════════════════════ */}
 
         {/* — i label + arrow → R1 — */}
-        <rect x={16} y={R1cy - 18} width={30} height={36} rx={6} fill="#185FA5" />
+        <rect x={16} y={R1cy - 18} width={30} height={36} rx={6} fill="#2196F3" />
         <text x={31} y={R1cy} textAnchor="middle" dominantBaseline="central"
           fontSize={14} fontWeight={700} fill="white">i</text>
         <line x1={46} y1={R1cy} x2={R1.x} y2={R1cy}
           stroke="#185FA5" strokeWidth={1.3} markerEnd="url(#ah)" />
 
         {/* — j label + arrow → R2 — */}
-        <rect x={16} y={R2cy - 18} width={30} height={36} rx={6} fill="#993C1D" />
+        <rect x={16} y={R2cy - 18} width={30} height={36} rx={6} fill="#FF5722" />
         <text x={31} y={R2cy} textAnchor="middle" dominantBaseline="central"
           fontSize={14} fontWeight={700} fill="white">j</text>
         <line x1={46} y1={R2cy} x2={R2.x} y2={R2cy}
-          stroke="#993C1D" strokeWidth={1.3} markerEnd="url(#ah)" />
+          stroke="#FF5722" strokeWidth={1.3} markerEnd="url(#ah)" />
 
         {/* ════════════════════════════════════════════════════════════════
             R1 / MUL / R2 — SAME VERTICAL LINE
         ════════════════════════════════════════════════════════════════ */}
 
         {/* — R1 box — */}
-        <rect x={R1.x} y={R1.y} width={R1.w} height={R1.h} rx={8} fill="#185FA5" />
+        <rect x={R1.x} y={R1.y} width={R1.w} height={R1.h} rx={8} fill="#2196F3" />
         <text x={R1cx} y={R1.y + 22} textAnchor="middle" dominantBaseline="central"
           fontSize={14} fontWeight={500} fill="white">R1 (16 bit)</text>
         <text x={R1cx} y={R1.y + 42} textAnchor="middle" dominantBaseline="central"
           fontSize={11} fill="#B5D4F4">Input / Activation (i)</text>
 
         {/* — R2 box — */}
-        <rect x={R2.x} y={R2.y} width={R2.w} height={R2.h} rx={8} fill="#993C1D" />
+        <rect x={R2.x} y={R2.y} width={R2.w} height={R2.h} rx={8} fill="#FF5722" />
         <text x={R2cx} y={R2.y + 22} textAnchor="middle" dominantBaseline="central"
           fontSize={14} fontWeight={500} fill="white">R2 (16 bit)</text>
         <text x={R2cx} y={R2.y + 42} textAnchor="middle" dominantBaseline="central"
@@ -813,7 +813,7 @@ export default function FMAPipeline() {
           fontSize={10} fill="#888" textAnchor="start" dominantBaseline="central">15 bits mantissa</text>
 
         {/* — MUL circle — */}
-        <circle cx={MUL.cx} cy={MUL.cy} r={MUL.r} fill="#BA7517" />
+        <circle cx={MUL.cx} cy={MUL.cy} r={MUL.r} fill="#F7CD1E" />
         <text x={MUL.cx} y={MUL.cy} textAnchor="middle" dominantBaseline="central"
           fontSize={22} fontWeight={500} fill="white">×</text>
 
@@ -856,19 +856,19 @@ export default function FMAPipeline() {
 
         {/* — MUL right → right → R3 left (weighted input 15b) — */}
         <line x1={MUL.cx + MUL.r} y1={MUL.cy} x2={R3.x} y2={R3cy}
-          stroke="#BA7517" strokeWidth={0.9} markerEnd="url(#ah)" />
+          stroke="#F7CD1E" strokeWidth={0.9} markerEnd="url(#ah)" />
         <text x={(MUL.cx + MUL.r + R3.x - 40 ) / 2} y={MUL.cy - 10}
-          fontSize={10} fill="#BA7517" textAnchor="middle">weighted input (15 bits)</text>
+          fontSize={10} fill="#F7CD1E" textAnchor="middle">weighted input (15 bits)</text>
 
         {/* — R3 box — */}
-        <rect x={R3.x} y={R3.y} width={R3.w} height={R3.h} rx={8} fill="#534AB7" />
+        <rect x={R3.x} y={R3.y} width={R3.w} height={R3.h} rx={8} fill="#A855F7" />
         <text x={R3cx} y={R3.y + 22} textAnchor="middle" dominantBaseline="central"
           fontSize={14} fontWeight={500} fill="white">R3 (16 bit)</text>
         <text x={R3cx} y={R3.y + 42} textAnchor="middle" dominantBaseline="central"
           fontSize={11} fill="#CECBF6">Mul + XOR result</text>
 
         {/* — R4 box — */}
-        <rect x={R4.x} y={R4.y} width={R4.w} height={R4.h} rx={8} fill="#3B6D11" />
+        <rect x={R4.x} y={R4.y} width={R4.w} height={R4.h} rx={8} fill="#16C45B" />
         <text x={R4cx} y={R4.y + 22} textAnchor="middle" dominantBaseline="central"
           fontSize={14} fontWeight={500} fill="white">R4 (16 bit)</text>
         <text x={R4cx} y={R4.y + 42} textAnchor="middle" dominantBaseline="central"
@@ -880,39 +880,39 @@ export default function FMAPipeline() {
 
         {/* — R3 right → right → down → ADD top (Product) — */}
         <line x1={R3.x + R3.w} y1={R3cy} x2={ADD.cx} y2={R3cy}
-          stroke="#534AB7" strokeWidth={0.9} />
+          stroke="#A855F7" strokeWidth={0.9} />
         <line x1={ADD.cx} y1={R3cy} x2={ADD.cx} y2={ADD.cy - ADD.r}
-          stroke="#534AB7" strokeWidth={0.9} markerEnd="url(#ah)" />
+          stroke="#A855F7" strokeWidth={0.9} markerEnd="url(#ah)" />
         <text x={(R3.x + R3.w + ADD.cx) / 2} y={R3cy - 8}
-          fontSize={10} fill="#534AB7" textAnchor="middle">Product</text>
+          fontSize={10} fill="#A855F7" textAnchor="middle">Product</text>
 
         {/* — R4 right → right → up → ADD right (Accumulated sum) — */}
         <line x1={R4.x + R4.w} y1={R4cy + 10} x2={775} y2={R4cy + 10}
-          stroke="#3B6D11" strokeWidth={0.9} />
+          stroke="#16C45B" strokeWidth={0.9} />
         <line x1={775} y1={R4cy + 10} x2={775} y2={ADD.cy}
-          stroke="#3B6D11" strokeWidth={0.9} />
+          stroke="#16C45B" strokeWidth={0.9} />
         <line x1={775} y1={ADD.cy} x2={ADD.cx + ADD.r} y2={ADD.cy}
-          stroke="#3B6D11" strokeWidth={0.9} markerEnd="url(#ah)" />
+          stroke="#16C45B" strokeWidth={0.9} markerEnd="url(#ah)" />
         <text x={R4.x + R4.w + 24} y={R4cy + 24}
-          fontSize={10} fill="#3B6D11" textAnchor="start">Accumulated sum</text>
+          fontSize={10} fill="#16C45B" textAnchor="start">Accumulated sum</text>
 
         {/* — ADD circle — */}
-        <circle cx={ADD.cx} cy={ADD.cy} r={ADD.r} fill="#BA7517" />
+        <circle cx={ADD.cx} cy={ADD.cy} r={ADD.r} fill="#F7CD1E" />
         <text x={ADD.cx} y={ADD.cy} textAnchor="middle" dominantBaseline="central"
           fontSize={20} fontWeight={500} fill="white">+</text>
 
         {/* — ADD bottom → down → left → R4 right (Result) — */}
         <line x1={ADD.cx} y1={ADD.cy + ADD.r} x2={ADD.cx} y2={R4cy - 10}
-          stroke="#BA7517" strokeWidth={0.9} />
+          stroke="#F7CD1E" strokeWidth={0.9} />
         <line x1={ADD.cx} y1={R4cy - 10} x2={R4.x + R4.w} y2={R4cy - 10}
-          stroke="#BA7517" strokeWidth={0.9} markerEnd="url(#ah)" />
+          stroke="#F7CD1E" strokeWidth={0.9} markerEnd="url(#ah)" />
         <text x={(ADD.cx - 14 + R4.x + R4.w) / 2} y={R4cy - 18}
-          fontSize={10} fill="#BA7517" textAnchor="middle">Result</text>
+          fontSize={10} fill="#F7CD1E" textAnchor="middle">Result</text>
 
         {/* — output from R4 bottom — */}
         <line x1={R4cx} y1={R4.y + R4.h} x2={R4cx} y2={540}
-          stroke="#3B6D11" strokeWidth={1.3} markerEnd="url(#ah)" />
-        <text x={R4cx} y={553} textAnchor="middle" fontSize={12} fill="#3B6D11">output</text>
+          stroke="#16C45B" strokeWidth={1.3} markerEnd="url(#ah)" />
+        <text x={R4cx} y={553} textAnchor="middle" fontSize={12} fill="##16C45B">output</text>
 
         {/* ════════════════════════════════════════════════════════════════
             HIGHLIGHT RINGS
@@ -929,19 +929,19 @@ export default function FMAPipeline() {
             VALUE BADGES
         ════════════════════════════════════════════════════════════════ */}
         {/* R1 badge — below box */}
-        <ValBadge cx={R1cx} cy={R1.y + R1.h + 14} value={st.r1} bgColor="#185FA5" />
+        <ValBadge cx={R1cx} cy={R1.y + R1.h + 14} value={st.r1} bgColor="#2196F3" />
         {/* R2 badge — above box */}
-        <ValBadge cx={R2cx} cy={R2.y - 14} value={st.r2} bgColor="#993C1D" />
+        <ValBadge cx={R2cx} cy={R2.y - 14} value={st.r2} bgColor="#FF5722" />
         {/* MUL badge — below circle */}
-        <ValBadge cx={MUL.cx} cy={MUL.cy + MUL.r + 14} value={st.mul} bgColor="#BA7517" />
+        <ValBadge cx={MUL.cx} cy={MUL.cy + MUL.r + 14} value={st.mul} bgColor="#F7CD1E" />
         {/* XOR badge — above circle */}
         <ValBadge cx={XOR.cx} cy={XOR.cy - XOR.r - 14} value={st.xor} bgColor="#5F5E5A" />
         {/* R3 badge — below box */}
-        <ValBadge cx={R3cx} cy={R3.y + R3.h + 14} value={st.r3} bgColor="#534AB7" />
+        <ValBadge cx={R3cx} cy={R3.y + R3.h + 14} value={st.r3} bgColor="#A855F7" />
         {/* ADD badge — left of circle */}
-        <ValBadge cx={ADD.cx - ADD.r - 44} cy={ADD.cy} value={st.add} bgColor="#BA7517" />
+        <ValBadge cx={ADD.cx - ADD.r - 44} cy={ADD.cy} value={st.add} bgColor="#F7CD1E" />
         {/* R4 badge — above box */}
-        <ValBadge cx={R4cx} cy={R4.y - 14} value={st.r4} bgColor="#3B6D11" />
+        <ValBadge cx={R4cx} cy={R4.y - 14} value={st.r4} bgColor="#16C45B" />
 
         {/* ════════════════════════════════════════════════════════════════
             FLYING BADGES — values travelling along the arrows
