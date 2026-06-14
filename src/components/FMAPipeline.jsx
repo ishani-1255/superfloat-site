@@ -419,7 +419,7 @@ const MSGS  = [
   "Pipeline complete — n+2 total cycles for n data sets.",
 ];
 
-const SPEED_MAP = { 1: 4000, 2: 2600, 3: 1600, 4: 900, 5: 450 };
+const SPEED_MAP = { 1: 5000, 2: 2600, 3: 1600, 4: 900, 5: 450 };
 const SPEED_LBL = { 1: "very slow", 2: "slow", 3: "medium", 4: "fast", 5: "faster" };
 
 // ─── stage state ─────────────────────────────────────────────────────────────
@@ -547,7 +547,7 @@ export default function FMAPipeline() {
   const [step, setStep]         = useState(-1);
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying]   = useState(false);
-  const [speed, setSpeed]       = useState(2);
+  const [speed, setSpeed]       = useState(1);
   const rafRef      = useRef(null);
   const lastTickRef = useRef(null);
   const playingRef  = useRef(false);
@@ -688,7 +688,7 @@ export default function FMAPipeline() {
             [R3.x, R3cy],
             [R3cx, R3.y + R3.h + 14],
           ],
-          label: `${DATA[di]}×${WGHT[di]}`, color: "",
+          label: `${DATA[di]}×${WGHT[di]}`, color: "#F7CD1E",
         });
         flights.push({
           path: [
