@@ -2,6 +2,7 @@ import FloatingWords from "../components/blocks/FloatingWords";
 import TextBlock from "../components/blocks/TextBlock";
 import EquationBlock from "../components/blocks/EquationBlock";
 import CodeBlock from "../components/blocks/CodeBlock";
+import FMAPipeline from "../components/FMAPipeline";
 
 export default function Home() {
   return (
@@ -27,6 +28,8 @@ export default function Home() {
          Superfloat is designed for AI at the edge — from IoT devices and autonomous drones to wearable tech and robotics. Wherever power efficiency and fast inference matter, 
          Superfloat offers a scalable alternative to traditional floating-point arithmetic." 
       />
+
+      <FMAPipeline />
 
       {/* Equation 
       <EquationBlock equation="P = f(n, c, 3, x)" /> */}
